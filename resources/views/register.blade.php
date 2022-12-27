@@ -6,6 +6,7 @@
 <style>
 .container{
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 body {
     background-color: #ececec;

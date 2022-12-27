@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('detail');
-            $table->string('price');
+            $table->integer('price');
         });
     }
 

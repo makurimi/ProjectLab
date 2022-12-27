@@ -1,4 +1,4 @@
-@extends('navbar')
+@extends('template.navbar')
 
 @section('container')
 <title>Login</title>
@@ -6,6 +6,7 @@
 <style>
 .container{
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 body {
