@@ -1,4 +1,4 @@
-@extends('template.navbar')
+@extends('navbar')
 
 @section('container')
 <title>Login</title>
@@ -28,11 +28,11 @@ button{
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="text"name="nim" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                            <input type="text"name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email">
                         </div>
                         <div class="mb-4">
                           <label for="exampleInputEmail1" class="form-label">Password</label>
-                          <input type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
+                          <input type="password" name="password"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
                         </div>
                         <div class="mb-4">
                             <div class="form-check">

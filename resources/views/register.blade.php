@@ -20,35 +20,65 @@ body {
          <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <!-- <form action="/datainserted" method="POST" enctype="multipart/form-data"> -->
                         @csrf
+                        <!-- NAME -->
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Name</label>
-                            <input type="text"name="nim" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Name">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text"name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ old('name') }}" placeholder="Enter Your Name">
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
+                        <!-- EMAIL -->
                         <div class="mb-4">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="text" name="email"class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="Enter Your Email">
                         </div>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <!-- PASS -->
                         <div class="mb-4">
-                          <label for="exampleInputEmail1" class="form-label">Password</label>
-                          <input type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" name="password"class="form-control @error('password') is-invalid @enderror" id="password" aria-describedby="emailHelp" placeholder="Enter Your Password">
                         </div>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <!-- RE ENTER PASS -->
                         <div class="mb-4">
-                          <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-                          <input type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Re-type Your Password">
+                          <label for="repassword" class="form-label">Confirm Password</label>
+                          <input type="password" name="repassword" class="form-control @error('repassword') is-invalid @enderror" id="repassword" aria-describedby="emailHelp" placeholder="Re-type Your Password">
                         </div>
+                                @error('repassword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <!-- GENDER -->
                         <div class="mb-4">
-                            <label for="exampleInputEmail1" class="form-label">Gender   :</label>
+                            <label for="gender" class="form-label">Gender   :</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="inlineRadio1" value="Male">
                                 <label class="form-check-label" for="inlineRadio1">Male</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="inlineRadio2" value="Female">
                                 <label class="form-check-label" for="inlineRadio2">Female</label>
                               </div>
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
+                        <!-- DOB -->
                         <!-- /bagian tanggal masih blom muncul otomatis -->
                         <div class='mb-4'>
                         <div class="form-label">Date of Birth
@@ -65,9 +95,10 @@ body {
                                 $('#datetimepicker1').datetimepicker();
                             });
                         </script>
+                        <!-- COUNTRY -->
                         <div class="mb-4">
-                        <label for="exampleFormControlSelect1" class="form-label">Country</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <label for="country" class="form-label @error('country') is-invalid @enderror">Country</label>
+                        <select class="form-control" id="country">
                         <option>Choose a country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -314,6 +345,11 @@ body {
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
                         </select>
+                                @error('country')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>

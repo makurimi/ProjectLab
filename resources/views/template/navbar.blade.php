@@ -23,14 +23,6 @@
         border-bottom: 2px solid transparent;
       }
 
-      .mynav a:hover {
-          border-bottom: 2px solid #198754;
-      }
-
-      .active a {
-          border-bottom: 2px solid #198754;
-      }
-
       .mysearch-input
       {
           background: transparent;
@@ -43,10 +35,6 @@
       ul .mymenu
       {
         background-color: #38444d;
-      }
-      .mymenu a:hover
-      {
-        color : #38444d;
       }
       .mysearch
       {
