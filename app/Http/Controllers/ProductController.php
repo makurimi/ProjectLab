@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function categoryProduct($id)
     {
         $categories = category::all();
-        $products = product::where('category_id', $id)->where('is_deleted', false)->paginate(10)->withQueryString();
+        $products = product::where('category_id', $id)->paginate(10)->withQueryString();
         $categoryName = category::find($id)->name;
         return view('product_category', compact('categories', 'categoryName', 'products'));
     }
@@ -55,7 +55,7 @@ class ProductController extends Controller
             'search' => 'required',
         ]);
         $categories = category::all();
-        $products = product::where('name', 'like', '%' . $request->search . '%')->where('is_deleted', false)->paginate(10)->withQueryString();
+        $products = product::where('name', 'like', '%' . $request->search . '%')->paginate(10)->withQueryString();
         return view('search', compact('categories', 'products'));
     }
 
@@ -63,9 +63,9 @@ class ProductController extends Controller
     {
         $categories = category::all();
         if ($request->search == null)
-            $products = product::where('is_deleted', false)->get();
+            $products = product::all()->paginate(10);
         else
-            $products = product::where('name', 'like', '%' . $request->search . '%')->where('is_deleted', false)->paginate(10)->withQueryString();
+            $products = product::where('name', 'like', '%' . $request->search . '%')->paginate(10)->withQueryString();
         return view('search', compact('categories', 'products'));
     }
 }

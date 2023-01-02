@@ -13,47 +13,53 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//home
+Route::get('/', [ProductController::class, 'index']);
 
-// Route::get('/', function () {
-//     return view('login');
-// });
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/register', function () {
-//     return view('register');
-// });
+//auth
+//login
+Route::get('/login', [AuthController::class, 'loginPage']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/',[AuthController::class,'home']);
-Route::post('/',[AuthController::class,'handleLogin']);
+//register
+Route::get('/register', [AuthController::class, 'registerPage']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/login',[AuthController::class,'login']);
-Route::get('/register',[AuthController::class,'register']);
+//product by category
+Route::get('/category/{id}', [ProductController::class, 'categoryProduct']);
 
-Route::get('/category', function () {
-    return view('product_category');
+//product detail
+Route::get('/product/{id}', [ProductController::class, 'productDetail']);
+Route::post('/product/{id}', [ProductController::class, 'addToCart'])->middleware('auth');
+
+//search
+Route::post('/search', [ProductController::class, 'search'])->name('search');
+Route::get('/search', [ProductController::class, 'searchPage']);
+
+//admin only
+Route::middleware('auth.admin')->group(function () {
+    Route::get('/showproduct', [AdminController::class, 'showProduct'])->name('manageProduct');
+    Route::get('/addproduct', [AdminController::class, 'addProductPage']);
+    Route::post('/addproduct', [AdminController::class, 'addProduct']);
+    Route::get('/deleteproduct/{id}', [AdminController::class, 'delete']);
+    Route::get('/update/{id}', [AdminController::class, 'updatePage']);
+    Route::post('/update/{id}', [AdminController::class, 'update']);
+    Route::post('/manage/search', [AdminController::class, 'search'])->name('searchManage');
+    Route::get('/manage/search', [AdminController::class, 'searchPage']);
 });
-Route::get('/detail', function () {
-    return view('product_detail');
+
+
+//customer (member) only
+Route::middleware('auth.member')->group(function () {
+    Route::get('/history', [CartController::class, 'history']);
+    Route::get('/showcart', [CartController::class, 'showcart']);
+    Route::get('/deletecart/{id}', [CartController::class, 'delete']);
+    Route::post('/purchase', [CartController::class, 'purchase'])->name('purchase');
+    Route::post('/product/{id}', [ProductController::class, 'addToCart']);
 });
-Route::get('/search', function () {
-    return view('search');
-});
-Route::get('/manage', function () {
-    return view('manage_product');
-});
-Route::get('/addproduct', function () {
-    return view('add_product');
-});
-Route::get('/updateproduct', function () {
-    return view('update_product');
-});
-Route::get('/profile', function () {
-    return view('profile');
-});
-Route::get('/cart', function () {
-    return view('cart');
-});
-Route::get('/history', function () {
-    return view('history');
+
+//for authenticated user (member & admin)
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [AuthController::class, 'profilePage']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

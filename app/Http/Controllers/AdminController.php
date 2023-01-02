@@ -39,7 +39,7 @@ class AdminController extends Controller
     public function showProduct()
     {
         $categories = Category::all();
-        $products = Product::where('is_deleted', false)->get();
+        $products = Product::all();
         return view('manage_products', compact('products', 'categories'));
     }
 
@@ -49,7 +49,7 @@ class AdminController extends Controller
             'search' => 'required',
         ]);
         $categories = Category::all();
-        $products = Product::where('name', 'like', '%' . $request->search . '%')->where('is_deleted', false)->get();
+        $products = Product::where('name', 'like', '%' . $request->search . '%')->get();
         return view('admin_search_product', compact('products', 'categories'));
     }
 
@@ -58,20 +58,18 @@ class AdminController extends Controller
         $categories = Category::all();
 
         if ($request->search == null)
-            $products = Product::where('is_deleted', false)->get();
-        else
-            $products = Product::where('name', 'like', '%' . $request->search . '%')->where('is_deleted', false)->get();
+            $products = Product::where('name', 'like', '%' . $request->search . '%')->get();
 
         return view('admin_search_product', compact('products', 'categories'));
     }
 
-    public function delete($id)
-    {
-        $data = Product::find($id);
-        $data->is_deleted = true;
-        $data->save();
-        return redirect()->back()->with('message', 'Success deleted product id: ' . $id);
-    }
+    // public function delete($id)
+    // {
+    //     $data = Product::find($id);
+    //     $data->is_deleted = true;
+    //     $data->save();
+    //     return redirect()->back()->with('message', 'Success deleted product id: ' . $id);
+    // }
 
     public function updatePage($id)
     {

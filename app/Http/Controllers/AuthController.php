@@ -62,6 +62,12 @@ class AuthController extends Controller
         return redirect()->route('/login');
     }
 
+    public function registerPage()
+    {
+        $categories = category::all();
+        return view('register', compact('categories'));
+    }
+
     public function register(Request $request)
     {
         $categories = category::all();
