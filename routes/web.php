@@ -21,9 +21,14 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/login', [AuthController::class, 'loginPage']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+
 //register
 Route::get('/register', [AuthController::class, 'registerPage']);
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+//search
+Route::post('/search', [ProductController::class, 'search'])->name('search');
+Route::get('/search', [ProductController::class, 'searchPage']);
 
 //product by category
 Route::get('/category/{id}', [ProductController::class, 'categoryProduct']);
@@ -31,10 +36,6 @@ Route::get('/category/{id}', [ProductController::class, 'categoryProduct']);
 //product detail
 Route::get('/product/{id}', [ProductController::class, 'productDetail']);
 Route::post('/product/{id}', [ProductController::class, 'addToCart'])->middleware('auth');
-
-//search
-Route::post('/search', [ProductController::class, 'search'])->name('search');
-Route::get('/search', [ProductController::class, 'searchPage']);
 
 //admin only
 Route::middleware('auth.admin')->group(function () {
