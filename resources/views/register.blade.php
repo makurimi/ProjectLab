@@ -1,4 +1,4 @@
-@extends('navbar')
+@extends('template.navbar')
 
 @section('container')
 <title>Register</title>
@@ -81,9 +81,9 @@ body {
                         <!-- DOB -->
                         <!-- /bagian tanggal masih blom muncul otomatis -->
                         <div class='mb-4'>
-                        <div class="form-label">Date of Birth
-                            <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
+                        <div class="form-label">Date of Birth (YYYY/MM/DD)
+                            <div class='input-group date' id='datetimepicker1' >
+                            <input type='text' class="form-control" placeholder="Example : 2000/01/01" />
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>

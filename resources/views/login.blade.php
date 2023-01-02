@@ -1,4 +1,4 @@
-@extends('navbar')
+@extends('template.navbar')
 
 @section('container')
 <title>Login</title>
