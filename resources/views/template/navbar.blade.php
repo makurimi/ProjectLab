@@ -50,11 +50,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/">Barbatos Shop</a>
+            <a class="nav-link" aria-current="page" href="/"><strong>Barbatos Shop</strong></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/product">Category</a>
-          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/category">Beauty</a></li>
+            <li><a class="dropdown-item" href="/category">Camera</a></li>
+            <li><a class="dropdown-item" href="/category">Other</a></li>
+          </ul>
+        </li>
         </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
@@ -75,7 +82,7 @@
                 </ul>
                 @endguest
                 @auth
-                @if (Auth::user()->level == 'admin')
+                @if (Auth::user()->role == 'admin')
                 <ul class="navbar-nav ms-auto mydrop">
                 <li class="nav-item dropdown mr-4">
                     <a class="nav-link dropdown-toggle mr-4 bi bi-box-seam" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -100,7 +107,7 @@
                   </li>
                 </ul>
                 @endif
-                @if (Auth::user()->level == 'member')
+                @if (Auth::user()->role == 'member')
                 <ul class="navbar-nav ms-auto mydrop">
                     <li class="nav-item">
                         <a class="nav-link bi bi-cart2" href="/checkout"> Cart</a>
@@ -128,7 +135,7 @@
     </div>
 </nav>
 <div class="container">
-    @yield('content')
+    @yield('container')
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

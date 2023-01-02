@@ -29,3 +29,31 @@ Route::post('/',[AuthController::class,'handleLogin']);
 
 Route::get('/login',[AuthController::class,'login']);
 Route::get('/register',[AuthController::class,'register']);
+
+Route::get('/category', function () {
+    return view('product_category');
+});
+Route::get('/detail', function () {
+    return view('product_detail');
+});
+Route::get('/search', function () {
+    return view('search');
+});
+Route::get('/manage', function () {
+    return view('manage_product');
+});
+Route::get('/addproduct', function () {
+    return view('add_product');
+});
+Route::get('/updateproduct', function () {
+    return view('update_product');
+});
+Route::get('/profile', function () {
+    return view('profile');
+});
+Route::get('/cart', function () {
+    return view('cart');
+});
+Route::get('/history', function () {
+    return view('history');
+});

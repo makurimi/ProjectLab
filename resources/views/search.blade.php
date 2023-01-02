@@ -11,10 +11,8 @@
     h5{
         font-size: 15px;
     }
-    .card{
-        cursor: pointer;
-    }
 </style>
+
 <div class="searchbar">
     <div class="col-md-12">
         <form action="/search" class="d-flex">
@@ -23,11 +21,12 @@
         </form>
     </div>
 </div>
+
 <!-- break -->
 <br>
 <div class="card col-md-12">
   <div class="card-header">
-    Beauty        <a href="/category" style="text-decoration: none;">View All</a>
+    Search Result
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
@@ -53,37 +52,5 @@
         </div>
             </div>
 
-<!-- break -->
-<br>
-<div class="card col-md-12">
-  <div class="card-header">
-    Camera        <a href="/register" style="text-decoration: none;">View All</a>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <!-- produk -->
-        <div class="col-md-2 mb-3">
-                <div class="card" class="btn btn-outline-dark">
-                    <div href="/" class="card-body text-left">
-                        <img src="" style="max-height:150px"  class="img-fluid ">
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <h5>Nama produk</h5>
-                                <h5><strong>IDR Harga produk</strong></h5>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- biar card nambah -->
-            <div class="row">
-            <div class="col">
-
-            </div>
-        </div>
-            </div>
-    </li>
-  </ul>
-</div>
 
 @endsection
