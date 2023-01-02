@@ -20,10 +20,10 @@ class User extends Model
     {
         return $this->hasMany(transaction::class);
     }
+
     protected $table = 'user_datas';
     protected $fillable = [
         'name',
-        'role',
         'email',
         'password',
     ];
