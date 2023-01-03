@@ -28,26 +28,30 @@
 </div>
 <!-- break -->
 <br>
+@foreach ($categories as $category)
 <div class="card col-md-12">
     <div class="card-header">
-        Beauty <a href="/category" style="text-decoration: none;">View All</a>
+        {{$category->name}} <a href="/category/{{$category->id}}">View All</a>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <!-- produk -->
+
+            @foreach ($category->product as $product)
             <div class="col-md-2 mb-3">
                 <div class="card" class="btn btn-outline-dark">
                     <div href="/" class="card-body text-left">
-                        <img src="" style="max-height:150px" class="img-fluid ">
+                        <img src="{{ asset('product/' . $product->image) }}" style="max-height:150px" class="img-fluid ">
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <h5>Nama produk</h5>
-                                <h5><strong>IDR Harga produk</strong></h5>
+                                <h5>{{$product->name}}</h5>
+                                <h5><strong>{{'Rp. ' . $product->price}}</strong></h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
             <!-- biar card nambah -->
             <div class="row">
                 <div class="col">
@@ -55,36 +59,10 @@
                 </div>
             </div>
 </div>
-
-<!-- break -->
 <br>
-<div class="card col-md-12">
-    <div class="card-header">
-        Camera <a href="/register" style="text-decoration: none;">View All</a>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <!-- produk -->
-            <div class="col-md-2 mb-3">
-                <div class="card" class="btn btn-outline-dark">
-                    <div href="/" class="card-body text-left">
-                        <img src="" style="max-height:150px" class="img-fluid ">
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <h5>Nama produk</h5>
-                                <h5><strong>IDR Harga produk</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- biar card nambah -->
-            <div class="row">
-                <div class="col">
+@endforeach
 
-                </div>
-            </div>
-</div>
+
 </li>
 </ul>
 </div>
