@@ -7,7 +7,7 @@ body{
     }
 </style>
 <br>
-<form action="/manage" class="d-flex">
+<form action="/showproduct" class="d-flex">
             <button type="btn" class="btn btn-outline-secondary btn-lg" >Back</button>
         </form>
 <br>
@@ -20,7 +20,7 @@ body{
     <li class="list-group-item">
          <div class="col-12">
                 <div class="card-body">
-                    <form action="/" method="POST">
+                    <form action="{{ route('updateproduct') }}" method="POST">
                         @csrf
                         <div class="mb-4">
                             <label for="name" class="form-label">Name</label>
@@ -29,9 +29,11 @@ body{
                         <div class="mb-4">
                             <label for="category" class="form-label @error('category') is-invalid @enderror">Category</label>
                             <select class="form-control" id="category">
-                        <option>Select a Category</option>
-                        <option>Beauty</option>
-                        <option>Camera</option>
+                            <option>Select a Category</option>
+                            <option value="Shirt">Shirt</option>
+                            <option value="Pants">Pants</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Accessories">Accessories</option>
                             </select>
                             </div>
 

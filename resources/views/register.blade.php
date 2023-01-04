@@ -20,6 +20,7 @@ body {
          <div class="col-6">
             <div class="card">
                 <div class="card-body">
+                <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <!-- NAME -->
                         <div class="mb-3">
@@ -79,7 +80,6 @@ body {
                                 @enderror
                         </div>
                         <!-- DOB -->
-                        <!-- /bagian tanggal masih blom muncul otomatis -->
                         <div class='mb-4'>
                         <div class="form-label">Date of Birth (YYYY/MM/DD)
                             <div class='input-group date' id='datetimepicker1' >

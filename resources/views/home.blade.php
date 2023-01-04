@@ -34,9 +34,7 @@
         {{$category->name}} <a href="/category/{{$category->id}}">View All</a>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <!-- produk -->
-
+    <div class="row mt-4">
             @foreach ($category->product as $product)
             <div class="col-md-2 mb-3">
                 <div class="card" class="btn btn-outline-dark">
@@ -52,19 +50,10 @@
                 </div>
             </div>
             @endforeach
-            <!-- biar card nambah -->
-            <div class="row">
-                <div class="col">
-
-                </div>
-            </div>
 </div>
 <br>
 @endforeach
-
-
 </li>
 </ul>
 </div>
-
 @endsection

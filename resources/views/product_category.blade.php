@@ -20,7 +20,8 @@
         {{$categoryName}}
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">
+    <div class="row mt-4">
+
             <!-- produk -->
             @foreach ($products as $product)
             <div class="col-md-2 mb-3">
@@ -37,12 +38,8 @@
                 </div>
             </div>
             @endforeach
-            <!-- biar card nambah -->
-            <div class="row">
-                <div class="col">
-
-                </div>
             </div>
+
 </div>
 
 

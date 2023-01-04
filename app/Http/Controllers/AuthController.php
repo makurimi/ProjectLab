@@ -10,17 +10,10 @@ use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
-    // public function login(){
-    //     return view('login');
-    // }
     public function home()
     {
         return view('home');
     }
-    // public function register()
-    // {
-    //     return view('register');
-    // }
 
     public function profile()
     {

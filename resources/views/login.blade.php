@@ -24,7 +24,7 @@ button{
          <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="/" method="POST">
+                    <form action="{{ route('login') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email</label>

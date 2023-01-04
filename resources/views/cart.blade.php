@@ -47,10 +47,10 @@ body{
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <form action="" method="post">
+                                    <form action="{{ route('purchase') }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin akan menghapus produk ini?');"><i class="bi bi-trash3"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this product?');"><i class="bi bi-trash3"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -60,7 +60,7 @@ body{
                                 <td colspan="5"><strong>Total Price :</strong></td>
                                 <td><strong></strong></td>
                                 <td>
-                                    <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success" onclick="return confirm('Anda yakin akan Check Out ?');">
+                                    <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success" onclick="return confirm('Confirm checkout?');">
                                         <i class="bi bi-cart2"></i> Check Out
                                     </a>
                                 </td>
